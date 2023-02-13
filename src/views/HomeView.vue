@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import TheWelcome from "../components/TheWelcome.vue";
 </script>
 
 <template>
-  <main>
+  <div class="max-w-5xl mx-auto my-20 bg-neutral-White shadow-lg py-8 rounded-md">
     <TheWelcome />
-  </main>
+  </div>
 </template>
