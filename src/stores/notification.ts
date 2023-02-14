@@ -3,24 +3,28 @@ import { defineStore } from "pinia";
 interface Notification {
   id: number;
   name: string;
-  read: false;
-  markAllAsRead: false;
+  read: boolean;
+  markAllAsRead: boolean;
   date: string;
   description: string;
   action: string;
   group: string;
+  message: string;
+  sendMsg:boolean
 }
 
 export const useStore = defineStore("notification", {
   state: () => ({
-    notification:[
+    notification: [
       {
         id: 1,
         name: "Mark Webber",
         description: "",
         action: "reacted to your recent post",
         group: "My first tournament today",
-        read:true
+        read: true,
+        message: "",
+        sendMsg:false
       },
       {
         id: 2,
@@ -28,7 +32,9 @@ export const useStore = defineStore("notification", {
         description: "",
         action: "followed you",
         group: "",
-        read:true
+        read: true,
+        message: "",
+        sendMsg:false
       },
       {
         id: 3,
@@ -36,7 +42,9 @@ export const useStore = defineStore("notification", {
         description: "",
         action: "has joined your group",
         group: "chess group",
-        read:true
+        read: true,
+        message: "",
+        sendMsg:false
       },
       {
         id: 4,
@@ -44,7 +52,10 @@ export const useStore = defineStore("notification", {
         description: "",
         action: "sent you a private message",
         group: "",
-        read:false
+        read: false,
+        sendMsg:true,
+        message:
+          "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and i am already having a lot of fun and improving my game.",
       },
       {
         id: 5,
@@ -52,7 +63,9 @@ export const useStore = defineStore("notification", {
         description: "",
         action: "commented on your picture",
         group: "",
-        read:false
+        read: false,
+        sendMsg:false,
+        message: "",
       },
       {
         id: 6,
@@ -60,7 +73,9 @@ export const useStore = defineStore("notification", {
         description: "",
         action: "reacted to your recent post",
         group: "",
-        read:false
+        read: false,
+        sendMsg:false,
+        message: "",
       },
       {
         id: 7,
@@ -68,9 +83,11 @@ export const useStore = defineStore("notification", {
         description: "",
         action: "left the group",
         group: "chess group",
-        read:false
+        read: false,
+        sendMsg:false,
+        message: "",
       },
-    ] as Notification,
+    ],
   }),
   getters: {
     getNotification: (state) => state.notification,
