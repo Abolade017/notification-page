@@ -11,7 +11,7 @@
           3
         </div>
       </div>
-      <div><button class="text-primary-blue" @click="markAsRead()">Mark all as read</button></div>
+      <div><button class="text-primary-blue" @click="markAsRead">Mark all as read</button></div>
     </div>
   </header>
   <main>
@@ -60,22 +60,12 @@
     </div>
   </main>
 </template>
-<script setup lang="ts">
+<script setup>
 import { useStore, state } from "../stores/notification.ts";
 import { computed } from "vue";
 const store = useStore();
-const notifications = computed(() => store.getNotification);
-const description = computed(
-  () =>
-    store.state.notifications.name +
-    " " +
-    store.state.notifications.action +
-    " " +
-    store.state.notifications.group
-);
-function markAsRead(){
-  console.log(true)
 
-  // return store.state.notification.read=true;
-}
+const notifications = computed(() => store.getNotification);
+  
+
 </script>
