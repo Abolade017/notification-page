@@ -8,14 +8,18 @@
         <div
           class="rounded-sm h-6 w-6 bg-primary-blue text-white text-center font-bold"
         >
-          3
+          {{ unread.length }}
         </div>
       </div>
-      <div><button class="text-primary-blue" @click="markAsRead">Mark all as read</button></div>
+      <div>
+        <button class="text-primary-blue" @click="markAsRead(true)">
+          Mark all as read
+        </button>
+      </div>
     </div>
   </header>
   <main>
-    <div v-for="notification in notifications " :key="notification">
+    <div v-for="notification in notifications" :key="notification">
       <div class="mx-10">
         <div
           class="flex space-x-4 h-16 w-full rounded-sm bg-neutral-Vlight-grayish-blue my-4 px-4 py-3"
@@ -30,8 +34,11 @@
               {{ notification.action }}
             </p>
             <p class="text-primary-blue font-bold">{{ notification.group }}</p>
-            
-            <div class="rounded-full bg-primary-red w-2 h-2" v-if="notification.read"></div>
+
+            <div
+              class="rounded-full bg-primary-red w-2 h-2"
+              v-if="notification.read"
+            ></div>
           </div>
         </div>
       </div>
@@ -49,23 +56,37 @@
               {{ notification.action }}
             </p>
             <p class="text-primary-blue font-bold">{{ notification.group }}</p>
-            
-            <div class="rounded-full bg-primary-red w-2 h-2" v-if="notification.read"></div>
+
+            <div
+              class="rounded-full bg-primary-red w-2 h-2"
+              v-if="notification.read"
+            ></div>
           </div>
         </div>
       </div>
-      <div v-if="notification.sendMsg" class="bg-neutral-Light-grayish-blue-1 ml-28 mr-10  rounded-md ">
-      <p class="px-4 p-4">{{ notification.message }}</p>
+      <div
+        v-if="notification.sendMsg"
+        class="bg-neutral-Light-grayish-blue-1 ml-28 mr-10 rounded-md"
+      >
+        <p class="px-4 p-4">{{ notification.message }}</p>
       </div>
     </div>
   </main>
 </template>
-<script setup>
-import { useStore, state } from "../stores/notification.ts";
+<script setup lang="ts">
+import { useStore, state, actions, getters } from "../stores/notification.ts";
 import { computed } from "vue";
 const store = useStore();
 
 const notifications = computed(() => store.getNotification);
-  
-
+const unread = store.getNotification.filter(function (el) {
+  return el.read === true;
+});
+function markAsRead(notify) {
+  if (notify === true) {
+    // return (store.notifications.read = false);
+     notifications.read=false
+    console.log(notifications);
+  }
+}
 </script>

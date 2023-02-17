@@ -92,21 +92,12 @@ export const useStore = defineStore("notification", {
   getters: {
     getNotification: (state) => state.notificationList,
   },
-  actions:{
-    markAsRead(state){
-      if (state.notificationList.read===true) {
-        state.notificationList.read==false
-        console.log(state.notificationList.read)
-      }
-    }
-  }
 });
 
 interface Notification {
   id: number;
   name: string;
   read: boolean;
-  markAllAsRead: boolean;
   date: string;
   description: string;
   action: string;
