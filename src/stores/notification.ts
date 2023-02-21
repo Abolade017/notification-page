@@ -1,108 +1,138 @@
-import { ref, computed } from "vue";
-import { defineStore } from "pinia";
+import { ref, computed } from 'vue';
+import { defineStore } from 'pinia';
 interface State {
-  notificationList: Notification[];
+	notificationList: Notification[];
+	read: false;
 }
 
-export const useStore = defineStore("notification", {
-  state: (): State => {
-    return {
-      notificationList: [
-        {
-          id: 1,
-          name: "Mark Webber",
-          description: "",
-          action: "reacted to your recent post",
-          group: "My first tournament today",
-          read: true,
-          message: "",
-          photo: "",
-          sendMsg: false,
-        },
-        {
-          id: 2,
-          name: "Angela Gray",
-          description: "",
-          action: "followed you",
-          group: "",
-          read: true,
-          message: "",
-          photo: "",
-          sendMsg: false,
-        },
-        {
-          id: 3,
-          name: "Jacob Thompson",
-          description: "",
-          action: "has joined your group",
-          group: "chess group",
-          read: true,
-          message: "",
-          photo: "",
-          sendMsg: false,
-        },
-        {
-          id: 4,
-          name: "Rizty Hasanuddin",
-          description: "",
-          action: "sent you a private message",
-          group: "",
-          read: false,
-          sendMsg: true,
-          message:
-            "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and i am already having a lot of fun and improving my game.",
-          photo: "",
-        },
-        {
-          id: 5,
-          name: "Kimberly Smith",
-          description: "",
-          action: "commented on your picture",
-          group: "",
-          read: false,
-          sendMsg: false,
-          message: "",
-          photo: "",
-        },
-        {
-          id: 6,
-          name: "nathan Peterson",
-          description: "",
-          action: "reacted to your recent post",
-          group: "",
-          read: false,
-          sendMsg: false,
-          message: "",
-          photo: "",
-        },
-        {
-          id: 7,
-          name: "Anna Kim",
-          description: "",
-          action: "left the group",
-          group: "chess group",
-          read: false,
-          sendMsg: false,
-          message: "",
-          photo: "",
-        },
-      ],
-    };
-  },
-  getters: {
-    getNotification: (state) => state.notificationList,
-  },
+export const useStore = defineStore('notificationList', {
+	state: (): State => {
+		return {
+			notificationList: [
+				{
+					id: 1,
+					name: 'Mark Webber',
+					description: '',
+					action: 'reacted to your recent post',
+					group: 'My first tournament today',
+					read: false,
+					message: '',
+					photo: 'avatar-mark-webber.webp',
+					commented: 'false',
+					commentedPic: '',
+					sendMsg: false
+				},
+				{
+					id: 2,
+					name: 'Angela Gray',
+					description: '',
+					action: 'followed you',
+					group: '',
+					read: false,
+					message: '',
+					photo: 'avatar-angela-gray.webp',
+					commented: 'false',
+					commentedPic: '',
+					sendMsg: false
+				},
+				{
+					id: 3,
+					name: 'Jacob Thompson',
+					description: '',
+					action: 'has joined your group',
+					group: 'chess group',
+					read: false,
+					message: '',
+					photo: 'avatar-jacob-thompson.webp',
+					commented: 'false',
+					commentedPic: '',
+					sendMsg: false
+				},
+				{
+					id: 4,
+					name: 'Rizky Hasanuddin',
+					description: '',
+					action: 'sent you a private message',
+					group: '',
+					read: true,
+					sendMsg: true,
+					message:
+						"Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and i am already having a lot of fun and improving my game.",
+					photo: 'avatar-rizky-hasanuddin.webp',
+					commented: 'false',
+					commentedPic: ''
+				},
+				{
+					id: 5,
+					name: 'Kimberly Smith',
+					description: '',
+					action: 'commented on your picture',
+					group: '',
+					read: true,
+					sendMsg: false,
+					message: '',
+					photo: 'avatar-kimberly-smith.webp',
+					commented: true,
+					commentedPic: '<img src="src/assets/images/image-chess.webp" alt="commented-picture" class="h-full w-full mt-4">'
+				},
+				{
+					id: 6,
+					name: 'nathan Peterson',
+					description: '',
+					action: 'reacted to your recent post',
+					group: '',
+					read: true,
+					sendMsg: false,
+					message: '',
+					photo: 'avatar-nathan-peterson.webp',
+					commented: 'false',
+					commentedPic: ''
+				},
+				{
+					id: 7,
+					name: 'Anna Kim',
+					description: '',
+					action: 'left the group',
+					group: 'chess group',
+					read: true,
+					sendMsg: false,
+					message: '',
+					photo: 'avatar-anna-kim.webp',
+					commented: 'false',
+					commentedPic: ''
+				}
+			],
+			read: false
+		};
+	},
+	getters: {
+		getNotification: (state) => state.notificationList,
+		uread(state): number {
+			state.notificationList.filter((el) => {
+				return el.read === false;
+			}).length;
+		}
+	},
+	actions: {
+		markAllAsRead() {
+			for (let i = 0; i < this.notificationList.length; i++) {
+				this.notificationList[i].read = true;
+			}
+		}
+	}
 });
 
 interface Notification {
-  id: number;
-  name: string;
-  read: boolean;
-  date: string;
-  description: string;
-  action: string;
-  group: string;
-  message: string;
-  sendMsg: boolean;
-  photo: string;
+	id: number;
+	name: string;
+	read: boolean;
+	date: string;
+	description: string;
+	action: string;
+	group: string;
+	message: string;
+	sendMsg: boolean;
+	photo: string;
+	commented: boolean;
+	commentedPic: string;
 }
