@@ -25,7 +25,7 @@
             <img :src="`src/assets/images/${notification.photo}`" alt="" class="w-full h-full">
           </div>
           <div class="flex flex-col">
-          <div class="flex space-x-2 ">
+          <div class="flex space-x-2 items-center">
             <p class="font-bold hover:text-primary-blue hover:font-bold cursor-pointer">
               {{ notification.name }}
             </p>
