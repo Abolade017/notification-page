@@ -24,7 +24,8 @@
           <div class="w-10 h-10">
             <img :src="`src/assets/images/${notification.photo}`" alt="" class="w-full h-full">
           </div>
-          <div class="flex space-x-2 items-center">
+          <div class="flex flex-col">
+          <div class="flex space-x-2 ">
             <p class="font-bold hover:text-primary-blue hover:font-bold cursor-pointer">
               {{ notification.name }}
             </p>
@@ -35,14 +36,17 @@
 
             <div class="rounded-full bg-primary-red w-2 h-2" v-if="!notification.read"></div>
           </div>
+          <div class="text-neutral-Grayish-blue">{{ notification.date }}</div>
+        </div>
         </div>
       </div>
       <div class="mx-10 my-4" v-if="notification.read">
-        <div class="flex justify-between">
+        <div class="flex">
           <div class="flex space-x-4 h-16 w-full  px-4 py-3" >
             <div class=" h-10 w-10">
               <img :src="`src/assets/images/${notification.photo}`" alt="user_image" class="w-full h-full">
             </div>
+            <div class="flex flex-col">
             <div class="flex space-x-2">
               <p class="font-bold">
                 {{ notification.name }}
@@ -53,9 +57,10 @@
               <p class="hover:text-primary-blue hover:font-bold text-neutral-Grayish-blue  font-bold cursor-pointer">{{
                 notification.group }}</p>
             </div>
+            <div class="text-neutral-Grayish-blue">{{ notification.date }}</div>
+            </div>
           </div>
           <div class="h-10 w-10 " v-if="notification.commented = true" v-html="notification.commentedPic"></div>
-
         </div>
       </div>
       <div v-if="notification.sendMsg" class="bg-neutral-Light-grayish-blue-1 ml-28 mr-10 rounded-md cursor-pointer">
@@ -65,6 +70,7 @@
   </main>
 </template>
 <script setup lang="ts">
+
 import { useStore, actions } from "@/stores/notification.ts";
 import { computed } from "vue";
 const store = useStore();
@@ -78,5 +84,6 @@ const unreadNotifications = computed(() => {
 const unreadLength = store.getNotification.filter(function (el) {
   return el.read === false;
 }).length;
+
 </script>
 

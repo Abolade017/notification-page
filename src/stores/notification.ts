@@ -18,9 +18,10 @@ export const useStore = defineStore('notificationList', {
 					read: false,
 					message: '',
 					photo: 'avatar-mark-webber.webp',
-					commented: 'false',
+					commented: false,
 					commentedPic: '',
-					sendMsg: false
+					sendMsg: false,
+					date: '1m'
 				},
 				{
 					id: 2,
@@ -31,9 +32,10 @@ export const useStore = defineStore('notificationList', {
 					read: false,
 					message: '',
 					photo: 'avatar-angela-gray.webp',
-					commented: 'false',
+					commented: false,
 					commentedPic: '',
-					sendMsg: false
+					sendMsg: false,
+					date: '5m'
 				},
 				{
 					id: 3,
@@ -44,9 +46,10 @@ export const useStore = defineStore('notificationList', {
 					read: false,
 					message: '',
 					photo: 'avatar-jacob-thompson.webp',
-					commented: 'false',
+					commented: false,
 					commentedPic: '',
-					sendMsg: false
+					sendMsg: false,
+					date: '1 day'
 				},
 				{
 					id: 4,
@@ -59,8 +62,9 @@ export const useStore = defineStore('notificationList', {
 					message:
 						"Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and i am already having a lot of fun and improving my game.",
 					photo: 'avatar-rizky-hasanuddin.webp',
-					commented: 'false',
-					commentedPic: ''
+					commented: false,
+					commentedPic: '',
+					date: '5 days'
 				},
 				{
 					id: 5,
@@ -73,7 +77,9 @@ export const useStore = defineStore('notificationList', {
 					message: '',
 					photo: 'avatar-kimberly-smith.webp',
 					commented: true,
-					commentedPic: '<img src="src/assets/images/image-chess.webp" alt="commented-picture" class="h-full w-full mt-4">'
+					commentedPic:
+						'<img src="src/assets/images/image-chess.webp" alt="commented-picture" class="h-full w-full mt-4">',
+					date: '1 week'
 				},
 				{
 					id: 6,
@@ -85,8 +91,9 @@ export const useStore = defineStore('notificationList', {
 					sendMsg: false,
 					message: '',
 					photo: 'avatar-nathan-peterson.webp',
-					commented: 'false',
-					commentedPic: ''
+					commented: false,
+					commentedPic: '',
+					date: '2 weeks'
 				},
 				{
 					id: 7,
@@ -98,8 +105,9 @@ export const useStore = defineStore('notificationList', {
 					sendMsg: false,
 					message: '',
 					photo: 'avatar-anna-kim.webp',
-					commented: 'false',
-					commentedPic: ''
+					commented: false,
+					commentedPic: '',
+					date: '2 weeks'
 				}
 			],
 			read: false
@@ -108,7 +116,7 @@ export const useStore = defineStore('notificationList', {
 	getters: {
 		getNotification: (state) => state.notificationList,
 		uread(state): number {
-			state.notificationList.filter((el) => {
+			return state.notificationList.filter((el) => {
 				return el.read === false;
 			}).length;
 		}
