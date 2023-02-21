@@ -5,6 +5,8 @@ import { defineStore } from 'pinia';
 	read: false;
 }
 
+import img1 from '../assets/images/avatar-anna-kim.webp';
+
 export const useStore = defineStore('notificationList', {
 	state: (): State => {
 		return {
@@ -17,7 +19,7 @@ export const useStore = defineStore('notificationList', {
 					group: 'My first tournament today',
 					read: false,
 					message: '',
-					photo: 'avatar-mark-webber.webp',
+					photo: img1,
 					commented: false,
 					commentedPic: '',
 					sendMsg: false,

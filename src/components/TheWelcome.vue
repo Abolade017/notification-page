@@ -20,7 +20,7 @@
         <div class="flex space-x-4 h-16 w-full rounded-sm bg-neutral-Vlight-grayish-blue my-4 px-4 py-3"
           v-if="!notification.read" @click="notification.read = true">
           <div class="w-10 h-10">
-            <img :src="`src/assets/images/${notification.photo}`" alt="" class="w-full h-full">
+            <img :src="notification.photo" alt="" class="w-full h-full">
           </div>
           <div class="flex flex-col">
           <div class="flex space-x-2 items-center">
