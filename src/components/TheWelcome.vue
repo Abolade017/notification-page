@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <header>
     <div class="flex justify-between mx-10">
@@ -17,7 +15,7 @@
     </div>
   </header>
   <main>
-    <div v-for="notification in notifications" :key="notification">
+    <div v-for="notification in notifications" :key="notification.id">
       <div class="mx-10">
         <div class="flex space-x-4 h-16 w-full rounded-sm bg-neutral-Vlight-grayish-blue my-4 px-4 py-3"
           v-if="!notification.read" @click="notification.read = true">
@@ -71,8 +69,9 @@
 </template>
 <script setup lang="ts">
 
-import { useStore, actions } from "@/stores/notification.ts";
+import { useStore } from "@/stores/notification";
 import { computed } from "vue";
+
 const store = useStore();
 
 const notifications = computed(() => store.getNotification);
@@ -81,9 +80,6 @@ const unreadNotifications = computed(() => {
   return notifications.value.filter((n) => n.read == false);
 });
 
-const unreadLength = store.getNotification.filter(function (el) {
-  return el.read === false;
-}).length;
 
 </script>
 

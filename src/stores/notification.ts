@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
-interface State {
+ interface State {
 	notificationList: Notification[];
 	read: false;
 }
