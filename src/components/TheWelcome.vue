@@ -23,42 +23,43 @@
             <img :src="notification.photo" alt="" class="w-full h-full">
           </div>
           <div class="flex flex-col">
-          <div class="flex space-x-2 items-center">
-            <p class="font-bold hover:text-primary-blue hover:font-bold cursor-pointer">
-              {{ notification.name }}
-            </p>
-            <p class="text-neutral-Grayish-blue font-normal">
-              {{ notification.action }}
-            </p>
-            <p class="hover:text-primary-blue hover:font-bold font-bold cursor-pointer">{{ notification.group }}</p>
-
-            <div class="rounded-full bg-primary-red w-2 h-2" v-if="!notification.read"></div>
-          </div>
-          <div class="text-neutral-Grayish-blue">{{ notification.date }}</div>
-        </div>
-        </div>
-      </div>
-      <div class="mx-10 my-4" v-if="notification.read">
-        <div class="flex">
-          <div class="flex space-x-4 h-16 w-full  px-4 py-3" >
-            <div class=" h-10 w-10">
-              <img :src="notification.photo" alt="user_image" class="w-full h-full">
-            </div>
-            <div class="flex flex-col">
-            <div class="flex space-x-2">
-              <p class="font-bold">
+            <div class="flex space-x-2 items-center">
+              <p class="font-bold hover:text-primary-blue hover:font-bold cursor-pointer">
                 {{ notification.name }}
               </p>
               <p class="text-neutral-Grayish-blue font-normal">
                 {{ notification.action }}
               </p>
-              <p class="hover:text-primary-blue hover:font-bold text-neutral-Grayish-blue  font-bold cursor-pointer">{{
-                notification.group }}</p>
+              <p class="hover:text-primary-blue hover:font-bold font-bold cursor-pointer">{{ notification.group }}</p>
+
+              <div class="rounded-full bg-primary-red w-2 h-2" v-if="!notification.read"></div>
             </div>
             <div class="text-neutral-Grayish-blue">{{ notification.date }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="mx-10 my-4" v-if="notification.read">
+        <div class="flex">
+          <div class="flex space-x-4 h-16 w-full  px-4 py-3">
+            <div class=" h-10 w-10">
+              <img :src="notification.photo" alt="user_image" class="w-full h-full">
+            </div>
+            <div class="flex flex-col">
+              <div class="flex space-x-2">
+                <p class="font-bold">
+                  {{ notification.name }}
+                </p>
+                <p class="text-neutral-Grayish-blue font-normal">
+                  {{ notification.action }}
+                </p>
+                <p class="hover:text-primary-blue hover:font-bold text-neutral-Grayish-blue  font-bold cursor-pointer">{{
+                  notification.group }}</p>
+              </div>
+              <div class="text-neutral-Grayish-blue">{{ notification.date }}</div>
             </div>
           </div>
-          <div class="h-10 w-10 " v-if="notification.commented = true" v-html="notification.commentedPic"></div>
+          <div class="h-10 w-10 " v-if="notification.commented = true" v-html="notification.commentedPic">
+          </div>
         </div>
       </div>
       <div v-if="notification.sendMsg" class="bg-neutral-Light-grayish-blue-1 ml-28 mr-10 rounded-md cursor-pointer">

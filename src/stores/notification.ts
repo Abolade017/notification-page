@@ -12,6 +12,7 @@ import img4 from '@/assets/images/avatar-rizky-hasanuddin.webp';
 import img5 from '@/assets/images/avatar-kimberly-smith.webp';
 import img6 from '@/assets/images/avatar-nathan-peterson.webp';
 import img7 from '@/assets/images/avatar-anna-kim.webp';
+import commentedPic from '@/assets/images/image-chess.webp'
 
 export const useStore = defineStore('notificationList', {
 	state: (): State => {
@@ -86,7 +87,7 @@ export const useStore = defineStore('notificationList', {
 					photo: img5,
 					commented: true,
 					commentedPic:
-						'<img src="src/assets/images/image-chess.webp" alt="commented-picture" class="h-full w-full mt-4">',
+						`<img src="src/assets/images/image-chess.webp" alt="commented-picture" class="h-full w-full mt-4">`,
 					date: '1 week'
 				},
 				{
