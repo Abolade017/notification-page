@@ -1,11 +1,17 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
- interface State {
+interface State {
 	notificationList: Notification[];
 	read: false;
 }
 
-import img1 from '../assets/images/avatar-anna-kim.webp';
+import img1 from '@/assets/images/avatar-anna-kim.webp';
+import img2 from '@/assets/images/avatar-angela-gray.webp';
+import img3 from '@/assets/images/avatar-jacob-thompson.webp';
+import img4 from '@/assets/images/avatar-rizky-hasanuddin.webp';
+import img5 from '@/assets/images/avatar-kimberly-smith.webp';
+import img6 from '@/assets/images/avatar-nathan-peterson.webp';
+import img7 from '@/assets/images/avatar-anna-kim.webp';
 
 export const useStore = defineStore('notificationList', {
 	state: (): State => {
@@ -33,7 +39,7 @@ export const useStore = defineStore('notificationList', {
 					group: '',
 					read: false,
 					message: '',
-					photo: 'avatar-angela-gray.webp',
+					photo: img2,
 					commented: false,
 					commentedPic: '',
 					sendMsg: false,
@@ -47,7 +53,7 @@ export const useStore = defineStore('notificationList', {
 					group: 'chess group',
 					read: false,
 					message: '',
-					photo: 'avatar-jacob-thompson.webp',
+					photo: img3,
 					commented: false,
 					commentedPic: '',
 					sendMsg: false,
@@ -63,7 +69,7 @@ export const useStore = defineStore('notificationList', {
 					sendMsg: true,
 					message:
 						"Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and i am already having a lot of fun and improving my game.",
-					photo: 'avatar-rizky-hasanuddin.webp',
+					photo: img4,
 					commented: false,
 					commentedPic: '',
 					date: '5 days'
@@ -77,7 +83,7 @@ export const useStore = defineStore('notificationList', {
 					read: true,
 					sendMsg: false,
 					message: '',
-					photo: 'avatar-kimberly-smith.webp',
+					photo: img5,
 					commented: true,
 					commentedPic:
 						'<img src="src/assets/images/image-chess.webp" alt="commented-picture" class="h-full w-full mt-4">',
@@ -92,7 +98,7 @@ export const useStore = defineStore('notificationList', {
 					read: true,
 					sendMsg: false,
 					message: '',
-					photo: 'avatar-nathan-peterson.webp',
+					photo: img6,
 					commented: false,
 					commentedPic: '',
 					date: '2 weeks'
@@ -106,7 +112,7 @@ export const useStore = defineStore('notificationList', {
 					read: true,
 					sendMsg: false,
 					message: '',
-					photo: 'avatar-anna-kim.webp',
+					photo: img7,
 					commented: false,
 					commentedPic: '',
 					date: '2 weeks'
