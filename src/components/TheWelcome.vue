@@ -42,7 +42,7 @@
         <div class="flex">
           <div class="flex space-x-4 h-16 w-full  px-4 py-3" >
             <div class=" h-10 w-10">
-              <img :src="`src/assets/images/${notification.photo}`" alt="user_image" class="w-full h-full">
+              <img :src="notification.photo" alt="user_image" class="w-full h-full">
             </div>
             <div class="flex flex-col">
             <div class="flex space-x-2">
