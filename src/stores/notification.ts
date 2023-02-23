@@ -87,7 +87,7 @@ export const useStore = defineStore('notificationList', {
 					photo: img5,
 					commented: true,
 					commentedPic:
-						`<img src="src/assets/images/image-chess.webp" alt="commented-picture" class="h-full w-full mt-4">`,
+						`<img src="${commentedPic}" alt="commented-picture" class="h-full w-full mt-4">`,
 					date: '1 week'
 				},
 				{
