@@ -1,8 +1,8 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 interface State {
-	notificationList: Notification[];
-	read: false;
+	notificationList: Notification[],
+	read: false,
 }
 
 import img1 from '@/assets/images/avatar-anna-kim.webp';
@@ -12,7 +12,7 @@ import img4 from '@/assets/images/avatar-rizky-hasanuddin.webp';
 import img5 from '@/assets/images/avatar-kimberly-smith.webp';
 import img6 from '@/assets/images/avatar-nathan-peterson.webp';
 import img7 from '@/assets/images/avatar-anna-kim.webp';
-import commentedPic from '@/assets/images/image-chess.webp'
+import commentedPic from '@/assets/images/image-chess.webp';
 
 export const useStore = defineStore('notificationList', {
 	state: (): State => {
