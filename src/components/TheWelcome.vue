@@ -8,7 +8,7 @@
         </div>
       </div>
       <div>
-        <button class="text-primary-blue" @click="store.markAllAsRead()">
+        <button class="md:text-primary-blue text-neutral-Grayish-blue-2" @click="store.markAllAsRead()">
           Mark all as read
         </button>
       </div>
@@ -17,22 +17,22 @@
   <main>
     <div v-for="notification in notifications" :key="notification.id">
       <div class="mx-10">
-        <div class="flex space-x-4 h-16 w-full rounded-sm bg-neutral-Vlight-grayish-blue my-4 px-4 py-3"
+        <div class="flex space-x-2 md:space-x-4 h-16 w-full rounded-sm bg-neutral-Vlight-grayish-blue my-4 px-4 py-3"
           v-if="!notification.read" @click="notification.read = true">
           <div class="w-10 h-10">
             <img :src="notification.photo" alt="" class="w-full h-full">
           </div>
           <div class="flex flex-col">
-            <div class="flex space-x-2 items-center">
-              <p class="font-bold hover:text-primary-blue hover:font-bold cursor-pointer">
+            <div class="flex">
+             <span class="font-bold hover:text-primary-blue hover:font-bold cursor-pointer">
                 {{ notification.name }}
-              </p>
-              <p class="text-neutral-Grayish-blue font-normal">
+              </span>
+           <span class="text-neutral-Grayish-blue font-normal px-2">
                 {{ notification.action }}
-              </p>
-              <p class="hover:text-primary-blue hover:font-bold font-bold cursor-pointer">{{ notification.group }}</p>
+            </span>
+             <span class="hover:text-primary-blue hover:font-bold font-bold cursor-pointer">{{ notification.group }}</span>
 
-              <div class="rounded-full bg-primary-red w-2 h-2" v-if="!notification.read"></div>
+             <span class="pt-2.5 pl-2"> <div class="rounded-full bg-primary-red w-2 h-2 " v-if="!notification.read"></div></span>
             </div>
             <div class="text-neutral-Grayish-blue">{{ notification.date }}</div>
           </div>
@@ -45,15 +45,22 @@
               <img :src="notification.photo" alt="user_image" class="w-full h-full">
             </div>
             <div class="flex flex-col">
-              <div class="flex space-x-2">
-                <p class="font-bold">
-                  {{ notification.name }}
-                </p>
-                <p class="text-neutral-Grayish-blue font-normal">
-                  {{ notification.action }}
-                </p>
-                <p class="hover:text-primary-blue hover:font-bold text-neutral-Grayish-blue  font-bold cursor-pointer">{{
-                  notification.group }}</p>
+              <div class="">
+                <span>
+                  <p class="font-bold">
+                    {{ notification.name }}
+                  </p>
+                </span>
+                <span>
+                  <p class="text-neutral-Grayish-blue font-normal">
+                    {{ notification.action }}
+                  </p>
+                </span>
+                <span>
+                  <p class="hover:text-primary-blue hover:font-bold text-neutral-Grayish-blue  font-bold cursor-pointer">
+                    {{
+                      notification.group }}</p>
+                </span>
               </div>
               <div class="text-neutral-Grayish-blue">{{ notification.date }}</div>
             </div>
